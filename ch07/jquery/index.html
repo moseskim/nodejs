@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul class="list-container">
+    <li>one</li>
+    <li>two</li>
+  </ul>
+
+  <button class="add-button">add</button>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      $('.add-button').on('click', () => {
+        const lastHtml = $('.list-container li').last().html();
+        if (lastHtml === 'two') {
+          $('.list-container').append('<li>three</li>');
+        } else if (lastHtml === 'three') {
+          $('.list-container').append('<li>four</li>');
+        } else if (lastHtml === 'four') {
+          $('.list-container').append('<li>five</li>');
+        } else {
+          $('.list-container').append('<li>xxx</li>');
+        }
+      });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

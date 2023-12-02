@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "ioredis": "^4.27.6"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

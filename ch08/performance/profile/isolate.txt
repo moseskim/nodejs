@@ -1,0 +1,306 @@
+Statistical profiling result from isolate-0x4a83620-12531-v8.log, (185 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+    116   62.7%          /usr/local/bin/node
+      2    1.1%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      1    0.5%    1.5%  Function: *wasm-function[59]
+
+ [C++]:
+   ticks  total  nonlib   name
+     37   20.0%   55.2%  __write
+      9    4.9%   13.4%  fwrite
+      8    4.3%   11.9%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      5    2.7%    7.5%  epoll_pwait
+      2    1.1%    3.0%  __lll_lock_wait
+      1    0.5%    1.5%  std::ostream::sentry::sentry(std::ostream&)
+      1    0.5%    1.5%  cfree
+      1    0.5%    1.5%  __mprotect
+      1    0.5%    1.5%  _IO_setb
+      1    0.5%    1.5%  _IO_file_xsputn
+
+ [Summary]:
+   ticks  total  nonlib   name
+      1    0.5%    1.5%  JavaScript
+     66   35.7%   98.5%  C++
+      4    2.2%    6.0%  GC
+    118   63.8%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     24   52.2%   13.0%  __write
+      9   19.6%    4.9%  fwrite
+      8   17.4%    4.3%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      1    2.2%    0.5%  std::ostream::sentry::sentry(std::ostream&)
+      1    2.2%    0.5%  cfree
+      1    2.2%    0.5%  __lll_lock_wait
+      1    2.2%    0.5%  _IO_setb
+      1    2.2%    0.5%  _IO_file_xsputn
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    116   62.7%  /usr/local/bin/node
+    103   88.8%    /usr/local/bin/node
+     44   42.7%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     42   95.5%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      5   11.9%          Function: ~<anonymous> node:crypto:1:1
+      5  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4    9.5%          Function: ~<anonymous> node:http:1:1
+      4  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      3    7.1%          Function: ~<anonymous> node:tls:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.8%          LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:421:29
+      2  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      2    4.8%          Function: ~<anonymous> node:internal/modules/esm/loader:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.8%          Function: ~<anonymous> node:internal/cluster/primary:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.8%          Function: ~<anonymous> node:child_process:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.8%          Function: ~<anonymous> node:_tls_wrap:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.8%          Function: ~<anonymous> node:_http_client:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.8%          Function: ~<anonymous> node:_http_agent:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          LazyCompile: ~lazyLoadStreams node:fs:2841:25
+      1  100.0%            LazyCompile: ~get ReadStream node:fs:2984:17
+      1    2.4%          LazyCompile: ~get BlockList node:net:1764:16
+      1  100.0%            /usr/local/bin/node
+      1    2.4%          LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:41:35
+      1  100.0%            LazyCompile: ~getStdout node:internal/bootstrap/switches/is_main_thread:121:19
+      1    2.4%          Function: ~<anonymous> node:net:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:internal/tls/secure-context:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:internal/modules/esm/get_source:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.4%          Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:internal/crypto/hkdf:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:dns:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:cluster:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:assert:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:_http_outgoing:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    2.4%          Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    4.5%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      2  100.0%          LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:36:26
+      2  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+     22   21.4%      LazyCompile: ~compileFunction node:vm:308:25
+     22  100.0%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1017:18
+     22  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1055:37
+     22  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1110:37
+      5    4.9%      /usr/local/bin/node
+      1   20.0%        LazyCompile: ~isIPv6 node:internal/net:35:16
+      1  100.0%          LazyCompile: ~isIP node:internal/net:39:14
+      1  100.0%            LazyCompile: ~lookupAndConnect node:net:980:26
+      1   20.0%        LazyCompile: ~deprecate node:internal/util:99:19
+      1  100.0%          Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   20.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      1   20.0%        LazyCompile: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/index.js:14:21
+      1  100.0%          /usr/local/bin/node
+      1  100.0%            /usr/local/bin/node
+      1   20.0%        /usr/local/bin/node
+      1  100.0%          LazyCompile: ~consumeFinish /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/readable.js:253:24
+      1  100.0%            LazyCompile: ~consumeEnd /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/readable.js:217:21
+      2    1.9%      LazyCompile: ~resolve node:path:1091:10
+      1   50.0%        LazyCompile: ~readPackage node:internal/modules/cjs/loader:290:21
+      1  100.0%          LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:321:26
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1110:37
+      1   50.0%        LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:81:28
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    1.9%      LazyCompile: ~internalBinding node:internal/bootstrap/loaders:164:45
+      1   50.0%        Function: ~<anonymous> node:tls:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%            LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      1   50.0%        Function: ~<anonymous> node:internal/modules/esm/module_job:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%            LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2    1.9%      LazyCompile: ~handleWriteReq node:internal/stream_base_commons:45:24
+      2  100.0%        LazyCompile: ~writeGeneric node:internal/stream_base_commons:151:22
+      2  100.0%          LazyCompile: ~Socket._writeGeneric node:net:754:42
+      2  100.0%            LazyCompile: ~Socket._write node:net:791:35
+
+     37   20.0%  __write
+     24   64.9%    /usr/local/bin/node
+      2    8.3%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      2  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    8.3%      LazyCompile: ~emit node:events:343:44
+      1   50.0%        LazyCompile: ~endReadableNT node:internal/streams/readable:1336:23
+      1  100.0%          LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1   50.0%        LazyCompile: ~_addListener node:events:422:22
+      1  100.0%          LazyCompile: ~addListener node:events:490:58
+      1  100.0%            LazyCompile: ~setupWarningHandler node:internal/bootstrap/pre_execution:141:29
+      1    4.2%      LazyCompile: ~setupPerfHooks node:internal/bootstrap/pre_execution:227:24
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    4.2%      LazyCompile: ~runInAsyncScope node:async_hooks:193:18
+      1  100.0%        LazyCompile: ~onHeaders /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/api-request.js:72:13
+      1  100.0%          LazyCompile: ~onHeaders /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/core/request.js:168:13
+      1  100.0%            LazyCompile: ~onHeadersComplete /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:772:21
+      1    4.2%      LazyCompile: ~resOnFinish node:_http_server:787:21
+      1  100.0%        LazyCompile: ~emit node:events:343:44
+      1  100.0%          LazyCompile: ~onFinish node:_http_outgoing:825:18
+      1  100.0%            LazyCompile: ~callback node:internal/streams/writable:550:44
+      1    4.2%      LazyCompile: ~readSync node:fs:684:18
+      1  100.0%        LazyCompile: ~tryReadSync node:fs:429:21
+      1  100.0%          LazyCompile: ~readFileSync node:fs:450:22
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1110:37
+      1    4.2%      LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    4.2%      LazyCompile: ~parserOnHeadersComplete node:_http_common:77:33
+      1    4.2%      LazyCompile: ~parseURL /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/core/util.js:29:19
+      1  100.0%        LazyCompile: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/index.js:49:10
+      1  100.0%          LazyCompile: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/index.js:14:21
+      1  100.0%            LazyCompile: ~onceWrapper node:events:508:21
+      1    4.2%      LazyCompile: ~onceWrapper node:events:508:21
+      1  100.0%        LazyCompile: ~emit node:events:343:44
+      1  100.0%          LazyCompile: ~emitListeningNT node:net:1350:25
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    4.2%      LazyCompile: ~onStreamRead node:internal/stream_base_commons:171:22
+      1    4.2%      LazyCompile: ~nextTick node:internal/process/task_queues:104:18
+      1  100.0%        LazyCompile: ~defaultTriggerAsyncIdScope node:internal/async_hooks:445:36
+      1  100.0%          LazyCompile: ~setupListenHandle node:net:1272:27
+      1  100.0%            LazyCompile: ~listenInCluster node:net:1357:25
+      1    4.2%      LazyCompile: ~lazyllhttp /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:411:27
+      1  100.0%        Function: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1055:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1110:37
+      1    4.2%      LazyCompile: ~dispatch /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/agent.js:97:12
+      1  100.0%        LazyCompile: ~request /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/api-request.js:141:18
+      1  100.0%          LazyCompile: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/api-request.js:143:24
+      1  100.0%            /usr/local/bin/node
+      1    4.2%      LazyCompile: ~callback node:internal/streams/writable:550:44
+      1  100.0%        LazyCompile: ~afterWrite node:internal/streams/writable:487:20
+      1  100.0%          LazyCompile: ~afterWriteTick node:internal/streams/writable:482:24
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    4.2%      LazyCompile: ~Socket node:net:283:16
+      1  100.0%        LazyCompile: ~connect node:net:193:17
+      1  100.0%          LazyCompile: ~connect /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/core/connect.js:24:27
+      1  100.0%            LazyCompile: ~socket /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1143:38
+      1    4.2%      LazyCompile: ~Server.listen node:net:1399:35
+      1  100.0%        Function: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1055:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1110:37
+      1    4.2%      LazyCompile: ~RequestHandler /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/api-request.js:13:15
+      1  100.0%        LazyCompile: ~request /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/api-request.js:141:18
+      1  100.0%          LazyCompile: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/api/api-request.js:143:24
+      1  100.0%            /usr/local/bin/node
+      1    4.2%      LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1055:37
+      1  100.0%        LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1110:37
+      1  100.0%          LazyCompile: ~Module.load node:internal/modules/cjs/loader:969:33
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      1    4.2%      LazyCompile: ~<anonymous> node:internal/fs/utils:668:38
+      1  100.0%        LazyCompile: ~realpathSync node:fs:2408:22
+      1  100.0%          LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1    4.2%      Function: ~<anonymous> node:internal/modules/cjs/helpers:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            Function: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1    4.2%      /usr/local/bin/node
+      1  100.0%        LazyCompile: ~Parser /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:494:15
+      1  100.0%          LazyCompile: ~connect /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1110:24
+      1  100.0%            /usr/local/bin/node
+
+      9    4.9%  fwrite
+      9  100.0%    /usr/local/bin/node
+      2   22.2%      LazyCompile: ~value node:internal/console/constructor:324:20
+      2  100.0%        LazyCompile: ~log node:internal/console/constructor:362:6
+      2  100.0%          /usr/local/bin/node
+      2  100.0%            LazyCompile: ~<anonymous> /home/koh110/dev/nodejs-book/sample/appendix01/profile/index.js:14:21
+      2   22.2%      Function: ~<anonymous> node:_http_outgoing:1:1
+      2  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2  100.0%            Function: ~<anonymous> node:_http_client:1:1
+      1   11.1%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:72:31
+      1   11.1%      LazyCompile: ~realpathSync node:fs:2408:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      1   11.1%      LazyCompile: ~get node:tls:108:8
+      1  100.0%        /usr/local/bin/node
+      1  100.0%          LazyCompile: ~getOwn node:internal/bootstrap/loaders:180:16
+      1  100.0%            LazyCompile: ~syncExports node:internal/bootstrap/loaders:287:14
+      1   11.1%      Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            Function: ~<anonymous> node:internal/modules/esm/get_source:1:1
+      1   11.1%      /usr/local/bin/node
+      1  100.0%        LazyCompile: ~getOwn node:internal/bootstrap/loaders:180:16
+      1  100.0%          LazyCompile: ~syncExports node:internal/bootstrap/loaders:287:14
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:273:15
+
+      8    4.3%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      8  100.0%    /usr/local/bin/node
+      2   25.0%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      2  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      2  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      2  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:72:31
+      1   12.5%      LazyCompile: ~realpathSync node:fs:2408:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      1   12.5%      LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:81:28
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   12.5%      LazyCompile: ~connect node:net:193:17
+      1  100.0%        LazyCompile: ~connect /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/core/connect.js:24:27
+      1  100.0%          LazyCompile: ~socket /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1143:38
+      1  100.0%            /usr/local/bin/node
+      1   12.5%      LazyCompile: ~connect /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1110:24
+      1  100.0%        LazyCompile: ~_resume /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1254:18
+      1  100.0%          LazyCompile: ~resume /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1237:17
+      1  100.0%            LazyCompile: ~dispatch /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:270:12
+      1   12.5%      LazyCompile: ~Duplex node:internal/streams/duplex:52:16
+      1  100.0%        LazyCompile: ~Socket node:net:283:16
+      1  100.0%          LazyCompile: ~connect node:net:193:17
+      1  100.0%            LazyCompile: ~connect /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/core/connect.js:24:27
+      1   12.5%      Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            Function: ~<anonymous> node:internal/modules/esm/get_source:1:1
+
+      5    2.7%  epoll_pwait
+
+      2    1.1%  __lll_lock_wait
+      1   50.0%    /usr/local/bin/node
+      1  100.0%      LazyCompile: ~connect node:net:193:17
+      1  100.0%        LazyCompile: ~connect /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/core/connect.js:24:27
+      1  100.0%          LazyCompile: ~socket /home/koh110/dev/nodejs-book/sample/appendix01/profile/node_modules/undici/lib/client.js:1143:38
+      1  100.0%            /usr/local/bin/node
+
+      2    1.1%  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+      2  100.0%    /usr/local/bin/node
+      1   50.0%      LazyCompile: ~writeHead node:_http_server:270:19
+      1  100.0%        LazyCompile: ~_implicitHeader node:_http_server:265:68
+      1  100.0%          LazyCompile: ~write_ node:_http_outgoing:727:16
+      1  100.0%            LazyCompile: ~end node:_http_outgoing:830:45
+      1   50.0%      LazyCompile: ~readFileHandle node:internal/fs/promises:319:30
+      1  100.0%        LazyCompile: ~readFile node:internal/fs/promises:746:24
+      1  100.0%          /usr/local/bin/node
+

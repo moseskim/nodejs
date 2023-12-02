@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Users 컴포넌트의 스냅샷 테스트 1`] = `
+<div
+  className="App"
+>
+  <ul>
+    <li
+      style={
+        Object {
+          "padding": "10px",
+        }
+      }
+    >
+      alpha
+    </li>
+    <li
+      style={
+        Object {
+          "padding": "10px",
+        }
+      }
+    >
+      bravo
+    </li>
+  </ul>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      type="text"
+    />
+    <button
+      type="submit"
+    >
+      추가
+    </button>
+  </form>
+  <button
+    onClick={[Function]}
+  >
+    업데이트
+  </button>
+</div>
+`;
